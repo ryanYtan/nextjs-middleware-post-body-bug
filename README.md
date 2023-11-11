@@ -9,25 +9,26 @@ Clone the repo and run `npm install`. Serve using `node index.js`. The server
 runs on `http://localhost:3000`.
 
 The repository as-is will run the NextJS middleware on all routes except for
-`/update`. Attempt to (using Postman, the same behaviour is not exhibited in
-`curl` which may be indicative of the underlying issue) to make the following
+`/update`. Attempt to make the following HTTP requests:
 queries:
 ```sh
 #expected behaviour: 404
 #actual behaviour: 404
-POST http://localhost:3000/update     #with an empty body
+curl -X POST http://localhost:3000/update -H "Content-Type: application/json"
 
 #expected behaviour: 404
 #actual behaviour: 404
-POST http://localhost:3000/update     #with any valid json body
+curl -X POST http://localhost:3000/update -H "Content-Type: application/json" -d ''
+curl -X POST http://localhost:3000/update -H "Content-Type: application/json" -d '{}'
 
 #expected behaviour: 404
 #actual behaviour: 404
-POST http://localhost:3000/about      #with an empty body
+curl -X POST http://localhost:3000/about -H "Content-Type: application/json"
 
 #expected behaviour: 404
 #actual behaviour: request hangs indefinitely in Postman (the main issue)
-POST http://localhost:3000/about      #with any valid json body
+curl -X POST http://localhost:3000/about -H "Content-Type: application/json" -d ''
+curl -X POST http://localhost:3000/about -H "Content-Type: application/json" -d '{}'
 ```
 For further testing, uncomment the commented `matcher` line in `middleware.js`
 to match all routes to enter the middleware and attempt to `POST` to `/update`
