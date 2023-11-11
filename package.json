@@ -10,7 +10,6 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.18.2",
-    "next": "^14.0.2",
-    "spdy": "^4.0.2"
+    "next": "^14.0.3-canary.2"
   }
 }
