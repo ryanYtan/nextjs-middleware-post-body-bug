@@ -45,11 +45,11 @@ this results in the UI freezing when `await update()` is called.
 $ npx next info
 
 Operating System:
-  Platform: darwin
-  Arch: arm64
-  Version: Darwin Kernel Version 22.5.0: Thu Jun  8 22:21:34 PDT 2023; root:xnu-8796.121.3~7/RELEASE_ARM64_T8112
+  Platform: linux
+  Arch: x64
+  Version: #1 SMP Fri Apr 2 22:23:49 UTC 2021
 Binaries:
-  Node: 20.8.0
+  Node: 20.9.0
   npm: 10.1.0
   Yarn: 1.22.19
   pnpm: N/A
