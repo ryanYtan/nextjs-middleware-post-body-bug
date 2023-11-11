@@ -29,6 +29,11 @@ POST http://localhost:3000/about      #with an empty body
 #actual behaviour: request hangs indefinitely in Postman (the main issue)
 POST http://localhost:3000/about      #with any valid json body
 ```
+For further testing, uncomment the commented `matcher` line in `middleware.js`
+to match all routes to enter the middleware and attempt to `POST` to `/update`
+again. The request with no body should return `404`, but the request with
+a body hangs indefinitely.
+
 The final test case is the problematic issue. For us, we are attempting to
 use `next-auth` to update the session on the server from our React front-end
 using `useSession`, which queries `POST /api/auth/session`. On our front-end,
